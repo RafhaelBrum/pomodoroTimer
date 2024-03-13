@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro Timer</title>
+    <audio id="beep" src="sound.mp3"></audio>
+</head>
+
+<body>
+    <main class="center">
+
+        <!-- Painel -->
+        <div class="selector-container center">
+            <h1>Pomodoro</h1>
+            <div class="painel center">
+                <button id="work" onclick="goToWork()">Work</button>
+                <button id="break" onclick="goToBreak()">Break</button>
+            </div>
+        </div>
+
+
+        <!-- Circle countdown -->
+        <div class="circle center">
+            <div class="semicircle"></div>
+            <div class="semicircle"></div>
+            <div class="semicircle"></div>
+            <div class="outer-circle"></div>
+        </div>
+
+        <div class="timer-container center">
+            <div class="timer center"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="start" class="center" onclick="start()">▶︎</button>
+            <button id="reset" class="center"><a href="/">↺</a></button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
