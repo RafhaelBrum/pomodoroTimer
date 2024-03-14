@@ -7,11 +7,19 @@ let setTime = 0;
 let futureTime = 0;
 let timerLoop;
 
-
-timer.innerHTML = `
-    <div>00</div>
+function resetStatus(tempo = 0, cor = 'grey') {
+    timer.innerHTML = `
+    <div>${tempo}</div>
     <div class="colon">:</div>
     <div>00</div>`;
+
+    semicircles[2].style.display = 'none';
+    semicircles[0].style.transform = 'rotate(180deg)';
+    semicircles[1].style.transform = `rotate(360deg)`;
+    hideResetButton();
+    showStartButton();
+    changeColor(`${cor}`);
+}
 
 function playSound() {
     const beepSound = document.getElementById('beep');
@@ -28,37 +36,13 @@ function changeColor(color) {
 function goToWork() {
     clearInterval(timerLoop);
     setTime = 25 * 60 * 1000;
-
-    timer.innerHTML = `
-    <div>25</div>
-    <div class="colon">:</div>
-    <div>00</div>`;
-
-    semicircles[2].style.display = 'none';
-    semicircles[0].style.transform = 'rotate(180deg)';
-    semicircles[1].style.transform = `rotate(360deg)`;
-    hideResetButton();
-    showStartButton();
-    changeColor("red");
-
+    resetStatus(tempo = 25, cor = 'red')
 }
 
 function goToBreak() {
     clearInterval(timerLoop);
     setTime = 5 * 60 * 1000;
-
-    timer.innerHTML = `
-    <div>05</div>
-    <div class="colon">:</div>
-    <div>00</div>`;
-
-    semicircles[2].style.display = 'none';
-    semicircles[0].style.transform = 'rotate(180deg)';
-    semicircles[1].style.transform = `rotate(360deg)`;
-    hideResetButton();
-    showStartButton();
-    changeColor("blue");
-
+    resetStatus(tempo = '05', cor = 'blue')
 }
 
 function start() {
@@ -113,6 +97,10 @@ function countdownTimer() {
     }
 }
 
+
+function showStartButton() {
+    btnStart.style.display = 'inline-block';
+}
 function hideStartButton() {
     btnStart.style.display = 'none';
 }
@@ -123,10 +111,6 @@ function showResetButton() {
 
 function hideResetButton() {
     btnReset.style.display = 'none';
-}
-
-function showStartButton() {
-    btnStart.style.display = 'inline-block';
 }
 
 const btnPlay = document.getElementById('start');
