@@ -182,6 +182,7 @@ h1 {
     font-size: 5vh;
     padding: 10px 30px;
     left: 15%;
+    display: none;
 }
 
 #reset {

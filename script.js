@@ -17,7 +17,7 @@ function resetStatus(tempo = 0, cor = 'grey') {
     semicircles[0].style.transform = 'rotate(180deg)';
     semicircles[1].style.transform = `rotate(360deg)`;
     hideResetButton();
-    showStartButton();
+    // showStartButton();
     changeColor(`${cor}`);
 }
 
@@ -37,12 +37,14 @@ function goToWork() {
     clearInterval(timerLoop);
     setTime = 25 * 60 * 1000;
     resetStatus(tempo = 25, cor = 'red')
+    showStartButton();
 }
 
 function goToBreak() {
     clearInterval(timerLoop);
     setTime = 5 * 60 * 1000;
     resetStatus(tempo = '05', cor = 'blue')
+    showStartButton();
 }
 
 function start() {
